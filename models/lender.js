@@ -1,5 +1,5 @@
 import { Types, Schema, model, models } from "mongoose";
-
+import { Education,LoanType,Occupation } from "../utils/enum";
 const lenderSchema = new Schema({
   firstName: {
     type: String,

@@ -2,11 +2,12 @@ import React from "react";
 import Image from "next/image";
 import { useSession, signOut } from "next-auth/react";
 
-function navbar() {
+function NavBar() {
   const { data: session, status } = useSession();
+  console.log(session)
   return (
     <div>
-      <navbar className="bg-[#0d0d3a] h-12 relative flex w-[100%]">
+      <navbar className="bg-[#0d0d3a] h-12 relative flex w-[100%] px-4 py-2  shadow-sm">
         <Image
           src="/teamLogo.png"
           alt="teamlogo"
@@ -16,7 +17,7 @@ function navbar() {
         />
 
         {status == "authenticated" && session ? (
-          <span className="w-[40px] absolute flex right-80">
+          <span className="w-[40px] absolute flex right-80 justify-center align-middle">
             <button className="bg-white text-[#8888f5] px-5 py-2 rounded-[16px] m-2 text-sm float-right">
               LENDER
             </button>
@@ -36,4 +37,4 @@ function navbar() {
   );
 }
 
-export default navbar;
+export default NavBar;
