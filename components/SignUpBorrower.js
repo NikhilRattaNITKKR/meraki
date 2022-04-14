@@ -3,7 +3,7 @@ import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import { Occupation, Education, Married, LoanType } from '../utils/enum';
 // import styles from './SignUpBorrower.css';
-
+import axios from 'axios';
 
 
 function SignUpBorrower() {
@@ -58,17 +58,44 @@ function SignUpBorrower() {
 
 
 
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+         await axios.post('/api/borrower',{
+            firstName : name,
+            lastName : name,
+            email : 'te43st@gmail.com',
+            age : age,
+            annualIncome : income,
+            education : education.value,
+            creditScore : cScore,
+            loanType : loanType.value,
+            maxExpectedROI : maxROI,
+            minExpectedROI : minROI,
+            maxLoanAmount : maxAm,
+            minLoanAmount :minAm,
+            loanReason : msg,
+            minDuration : minDur,
+            maxDuration : maxDur,
+            occupation : occupation.value,
+            married : married.value,
+            dependents : dependents,
+            externalLinks : linkedin
+        })
+        .then(response=>{
+            console.log(response);
+            alert("Created")
+        })
+        .catch(err=>{
+            console.log(err);
+        });
+    }
+
 
     return (
         <div>
             <div className='lg:grid lg:grid-cols-5 gap4 rounded-md px-2 py-2 lg:py-4  custom-box-shadow' >
                 <div className='col-span-3 px-2 py-2 sm:px-4 lg:px-12 lg:py-3'>
-                    <form>
-
-                        
-
-
-
+                    <form onSubmit={handleSubmit}> 
 
 
                         {value === 1 && 
@@ -84,7 +111,7 @@ function SignUpBorrower() {
 
                                     <div className="col-span-1">
                                         <label htmlFor="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Age</label>
-                                        <input value={age} onChange={(e)=>{if(e.target.value >= 0) setAge(e.target.value)}} type="number" min={0} id="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg    block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-blue-500   " placeholder="name@flowbite.com" required />
+                                        <input value={age} onChange={(e)=>{if(e.target.value >= 0) setAge(e.target.value)}} type="number" min={0} id="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg    block w-full p-2.5     focus:outline-blue-500   " placeholder="name@flowbite.com" required />
                                     </div>
 
                                 
@@ -94,7 +121,7 @@ function SignUpBorrower() {
                                 <div className='mb-6 grid grid-cols-2 gap-4 '>
                                     <div className="col-span-1">
                                         <label htmlFor="creditscore" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Credit Score</label>
-                                        <input value={cScore} onChange={(e)=>{ setCScore(e.target.value)}}  type="number" min={300} max={500} id="creditScore" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white    focus:outline-blue-500" placeholder="name@flowbite.com" required />
+                                        <input value={cScore} onChange={(e)=>{ setCScore(e.target.value)}}  type="number" min={300} max={500} id="creditScore" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5        focus:outline-blue-500" placeholder="name@flowbite.com" required />
                                     </div>
 
                                     <div className="col-span-1">
