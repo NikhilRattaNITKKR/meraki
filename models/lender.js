@@ -1,4 +1,4 @@
-import { Mongoose, Schema, model, models } from "mongoose";
+import { Types, Schema, model, models } from "mongoose";
 
 const lenderSchema = new Schema({
   firstName: {
@@ -65,9 +65,16 @@ const lenderSchema = new Schema({
     required: true,
     min: [0, "Duration cant be less than 0"],
   },
-
   externalLinks: {
     type: String,
+  },
+  matches: {
+    type: [
+      {
+        type: Types.ObjectId,
+      },
+    ],
+    default:[],
   },
 });
 
