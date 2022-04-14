@@ -17,26 +17,21 @@ handler.get(async (req, res) => {
         model: "Lender",
         path: "notification.id",
       });
-
-      
     }
 
-    borrower = await Borrower.findOne({ email })
-    .populate({
-        model: "Lender",
-        path: "notification.id",
-      });
-
-      
+    borrower = await Borrower.findOne({ email }).populate({
+      model: "Lender",
+      path: "notification.id",
+    });
 
     if (!borrower) {
       return res.status(404).json({ msg: "No such borrower Exists" });
     }
 
-    let notifications=borrower.notification;
-    borrower.notification=null;
+    let notifications = borrower.notification;
+    borrower.notification = null;
 
-    return res.status(200).json({ borrower,notifications });
+    return res.status(200).json({ borrower, notifications });
   } catch (e) {
     console.log(e);
   }
@@ -46,13 +41,24 @@ handler.post(async (req, res) => {
   try {
     await connectDB();
 
-    const data = req.body;
+    const { email, id, notification } = req.body;
 
-    let borrower = new Borrower(data);
+    let borrower;
+    if (!email) {
+      borrower = await Borrower.findById(id);
+    }
+
+    borrower = await Borrower.findOne({ email });
+
+    if (!borrower) {
+      return res.status(404).json({ msg: "No such borrower Exists" });
+    }
+
+    borrower.notification.push(notification);
     await borrower.save();
 
     return res.status(201).json({
-      msg: "Borrower Created Successfully",
+      msg: "Notification Created Successfully",
     });
   } catch (e) {
     console.log(e);
