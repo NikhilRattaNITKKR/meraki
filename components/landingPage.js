@@ -1,6 +1,10 @@
 import React from "react";
-
+import { useRouter } from 'next/router'
 function landingPage() {
+  const router = useRouter()
+  const handleBorrowerRegister = ()=>{
+    router.push('/signUpB')
+  }
   return (
     <>
       <div className="flex min-h-screen landingPage">
@@ -43,7 +47,7 @@ function landingPage() {
       </div>
 
       <div className="mb-24 flex items-center mt-16">
-        <button className="text-[white] px-6 py-2 rounded-[16px] bg-[#8888f5] font-bold text-[20px] h-[50px] mt-24 ml-32">
+        <button onClick={handleBorrowerRegister} className="text-[white] px-6 py-2 rounded-[16px] bg-[#8888f5] font-bold text-[20px] h-[50px] mt-24 ml-32">
           Register as BORROWER
         </button>
         <div className="float-right mr-16 ml-auto">
