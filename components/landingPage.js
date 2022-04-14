@@ -1,18 +1,16 @@
 import React from "react";
-import { useRouter } from 'next/router'
+import Navbar from "./navbar";
+
 function landingPage() {
-  const router = useRouter()
-  const handleBorrowerRegister = ()=>{
-    router.push('/signUpB')
-  }
   return (
     <>
+      <Navbar></Navbar>
       <div className="flex min-h-screen landingPage">
         <div className="mx-32 my-24">
           <h1 className="text-white font-bold text-[60px]">MERAKI</h1>
           <div className="text-white">
             A peer to peer banking is an online system that allows <br />{" "}
-            individual members to complete financial transection with <br /> one
+            individual members to complete financial transaction with <br /> one
             another by using an auction type process that <br /> lets member
             offer loans for a specific amount and at a specific rate.
           </div>
@@ -21,12 +19,14 @@ function landingPage() {
           <h3 className="text-[40px] text-white font-bold my-2 mb-10">
             REGSITER NOW!
           </h3>
+          <div className="flex">
           <button className="bg-[white] px-6 py-2 rounded-[16px] text-[#8888f5] font-bold text-[20px] mr-2">
             LENDER
           </button>
           <button className="bg-[white] px-6 py-2 rounded-[16px] text-[#8888f5] font-bold text-[20px] ml-2">
             BORROWER
           </button>
+          </div>
         </div>
       </div>
       <div className="flex items-center">
@@ -36,7 +36,7 @@ function landingPage() {
           </h1>
           <div className="mx-32">
             A peer to peer banking is an online system that allows <br />{" "}
-            individual members to complete financial transection with <br /> one
+            individual members to complete financial transaction with <br /> one
             another by using an auction type process that <br /> lets member
             offer loans for a specific amount and at a specific rate.
           </div>
@@ -47,7 +47,7 @@ function landingPage() {
       </div>
 
       <div className="mb-24 flex items-center mt-16">
-        <button onClick={handleBorrowerRegister} className="text-[white] px-6 py-2 rounded-[16px] bg-[#8888f5] font-bold text-[20px] h-[50px] mt-24 ml-32">
+        <button className="text-[white] px-6 py-2 rounded-[16px] bg-[#8888f5] font-bold text-[20px] h-[50px] mt-24 ml-32">
           Register as BORROWER
         </button>
         <div className="float-right mr-16 ml-auto">
@@ -56,7 +56,7 @@ function landingPage() {
           </h1>
           <div className="">
             A peer to peer banking is an online system that allows <br />{" "}
-            individual members to complete financial transection with <br /> one
+            individual members to complete financial transaction with <br /> one
             another by using an auction type process that <br /> lets member
             offer loans for a specific amount and at a specific rate.
           </div>
