@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from 'next/router'
-function landingPage() {
+function LandingPage() {
   const router = useRouter()
   const handleBorrowerRegister = ()=>{
     router.push('/signUpB')
@@ -66,4 +66,4 @@ function landingPage() {
   );
 }
 
-export default landingPage;
+export default LandingPage;
