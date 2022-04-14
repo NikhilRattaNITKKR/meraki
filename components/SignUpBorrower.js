@@ -4,8 +4,9 @@ import makeAnimated from 'react-select/animated';
 import { Occupation, Education, Married, LoanType } from '../utils/enum';
 // import styles from './SignUpBorrower.css';
 import axios from 'axios';
-
-
+import "react-step-progress-bar/styles.css";
+import { ProgressBar } from "react-step-progress-bar";
+import styles from  '../styles/SignUpBorrower.module.css'
 function SignUpBorrower() {
 
 
@@ -39,6 +40,7 @@ function SignUpBorrower() {
 
     
     const[name,setName]=useState();
+    const[email,setEmail]=useState();
     const[age,setAge]=useState();
     const[cScore,setCScore]=useState();
     const[occupation,setOccupation]=useState({"label":'',"value":''});
@@ -63,7 +65,7 @@ function SignUpBorrower() {
          await axios.post('/api/borrower',{
             firstName : name,
             lastName : name,
-            email : 'te43st@gmail.com',
+            email : email,
             age : age,
             annualIncome : income,
             education : education.value,
@@ -83,17 +85,21 @@ function SignUpBorrower() {
         })
         .then(response=>{
             console.log(response);
-            alert("Created")
+            setValue(3);
         })
         .catch(err=>{
             console.log(err);
         });
     }
+    
 
 
     return (
         <div>
-            <div className='lg:grid lg:grid-cols-5 gap4 rounded-md px-2 py-2 lg:py-4  custom-box-shadow' >
+            <ProgressBar className="rounded-none" percent={value === 1 ? 0 : value === 2 ? 50 : 100}/>
+
+            <div className={`lg:grid lg:grid-cols-5 gap4 rounded-md px-2 py-2 lg:py-4  custom-box-shadow ${styles.standard_height}`} >
+
                 <div className='col-span-3 px-2 py-2 sm:px-4 lg:px-12 lg:py-3'>
                     <form onSubmit={handleSubmit}> 
 
@@ -110,15 +116,19 @@ function SignUpBorrower() {
                                     </div>
 
                                     <div className="col-span-1">
-                                        <label htmlFor="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Age</label>
-                                        <input value={age} onChange={(e)=>{if(e.target.value >= 0) setAge(e.target.value)}} type="number" min={0} id="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg    block w-full p-2.5     focus:outline-blue-500   " placeholder="name@flowbite.com" required />
+                                        <label htmlFor="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
+                                        <input value={email} onChange={(e)=>{setEmail(e.target.value)}} type="email" id="name" className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-500   block w-full p-2.5  `} placeholder="name@flowbite.com" required />
                                     </div>
 
                                 
                                 </div>
 
 
-                                <div className='mb-6 grid grid-cols-2 gap-4 '>
+                                <div className='mb-6 grid grid-cols-3 gap-4 '>
+                                <div className="col-span-1">
+                                        <label htmlFor="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Age</label>
+                                        <input value={age} onChange={(e)=>{if(e.target.value >= 0) setAge(e.target.value)}} type="number" min={0} id="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg    block w-full p-2.5     focus:outline-blue-500   " placeholder="name@flowbite.com" required />
+                                    </div>
                                     <div className="col-span-1">
                                         <label htmlFor="creditscore" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Credit Score</label>
                                         <input value={cScore} onChange={(e)=>{ setCScore(e.target.value)}}  type="number" min={300} max={500} id="creditScore" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5        focus:outline-blue-500" placeholder="name@flowbite.com" required />
@@ -263,6 +273,16 @@ function SignUpBorrower() {
                             </div>
                         }
 
+
+                        {value === 3 &&
+                        
+                        <div className='flex justify-center items-center'>
+                            <div className=''>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/White_check_mark_in_dark_green_rounded_square.svg/512px-White_check_mark_in_dark_green_rounded_square.svg.png?20170222140246" alt="success" />
+                                <p className='text-center text-lg lg:text-xl font-medium mt-8'>Your Borrower Account has been created Successfully!</p>
+                            </div>
+                        </div>
+                        }
  
 
 
@@ -292,6 +312,8 @@ function SignUpBorrower() {
 
                         </div>
                         }
+
+
 
                     </form>
                 </div>
