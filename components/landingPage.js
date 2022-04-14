@@ -1,5 +1,8 @@
 import React from "react";
 import { useRouter } from 'next/router'
+import NavBar from './NavBar';
+
+
 function landingPage() {
   const router = useRouter()
   const handleBorrowerRegister = ()=>{
@@ -7,7 +10,8 @@ function landingPage() {
   }
   return (
     <>
-      <div className="flex min-h-screen landingPage">
+      <NavBar />
+      <div className="flex min-h-screen landingPage w-full">
         <div className="mx-32 my-24">
           <h1 className="text-white font-bold text-[60px]">MERAKI</h1>
           <div className="text-white">
