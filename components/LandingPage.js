@@ -9,6 +9,11 @@ function LandingPage() {
   const handleBorrowerRegister = ()=>{
     router.push('/signUpB')
   }
+ 
+  const handleLenderRegister = ()=>{
+    router.push('/signUpL')
+  }
+
   return (
     <>
       <NavBar />
@@ -46,7 +51,7 @@ function LandingPage() {
             offer loans for a specific amount and at a specific rate.
           </div>
         </div>
-        <button className="text-[white] px-6 py-2 rounded-[16px] bg-[#8888f5] font-bold text-[20px] float-right h-[50px] mt-24 ml-24">
+        <button onClick={handleLenderRegister}  className="text-[white] px-6 py-2 rounded-[16px] bg-[#8888f5] font-bold text-[20px] float-right h-[50px] mt-24 ml-24">
           Register as LENDER
         </button>
       </div>

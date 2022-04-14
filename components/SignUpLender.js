@@ -108,7 +108,7 @@ function SignUpLender() {
                         {value === 1 &&
 
 
-                            <div className=' mb-20'>
+                            <div className=' mb-8'>
 
                                 <div className='mb-6 grid grid-cols-2 gap-4 '>
                                     <div className="col-span-1">
@@ -141,7 +141,7 @@ function SignUpLender() {
                                 </div>
 
 
-                                <div className='mb-6 grid grid-cols-2 gap-4 '>
+                                <div className='mb-6 grid grid-cols-3 gap-4 '>
                                     <div className="col-span-1">
                                         <label htmlFor="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Occupation</label>
                                         <Select
@@ -176,19 +176,6 @@ function SignUpLender() {
                                         />
                                     </div>
 
-
-                                </div>
-
-
-                            </div>
-
-                        }
-
-
-                        {value === 2 &&
-
-                            <div className=''>
-                                <div className='mb-6 grid grid-cols-2 gap-4 '>
                                     <div className="col-span-1">
                                         <label htmlFor="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Type of Loan</label>
                                         <Select
@@ -202,6 +189,28 @@ function SignUpLender() {
                                             isMulti={true}
                                         />
                                     </div>
+
+
+                                </div>
+
+                                <div className='mb-0'>
+                                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Describe yourself</label>
+                                    <textarea value={msg} onChange={(e) => { setMsg(e.target.value) }} id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 focus:outline-blue-500 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+                                </div>
+
+                            </div>
+
+
+
+
+                        }
+
+
+                        {value === 2 &&
+
+                            <div className=''>
+                                <div className='mb-6 grid grid-cols-2 gap-4 '>
+                                    
                                     <div className="col-span-1">
                                         <label
                                             htmlFor="mRoi"
@@ -294,10 +303,7 @@ function SignUpLender() {
 
 
 
-                                <div className='mb-6'>
-                                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Describe yourself</label>
-                                    <textarea value={msg} onChange={(e) => { setMsg(e.target.value) }} id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 focus:outline-blue-500 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
-                                </div>
+                            
 
                             </div>
                         }

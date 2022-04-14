@@ -7,13 +7,13 @@ function NavBar() {
   console.log(session)
   return (
     <div>
-      <navbar className="bg-[#0d0d3a] h-12 relative flex w-[100%] px-4 py-2  shadow-sm">
+      <navbar className="bg-[#0d0d3a] relative h-16 flex w-[100%] px-4 py-2  shadow-sm">
         <Image
           src="/teamLogo.png"
           alt="teamlogo"
-          width={100}
-          height={100}
-          className="h-[40px] w-[100px] inline m-2 mx-4"
+          width={50}
+          height={50}
+          className="  inline m-2 mx-4"
         />
 
         {status == "authenticated" && session ? (
