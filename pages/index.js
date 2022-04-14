@@ -14,7 +14,7 @@ export default function Home() {
         <meta name="description" content="A Peer-2-Peer Money Lending Platform" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+        
   
         <LandingPage/>
 
