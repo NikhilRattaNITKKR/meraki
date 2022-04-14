@@ -141,7 +141,7 @@ function SignUpLender() {
                                 </div>
 
 
-                                <div className='mb-6 grid grid-cols-3 gap-4 '>
+                                <div className='mb-6 grid grid-cols-2 gap-4 '>
                                     <div className="col-span-1">
                                         <label htmlFor="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Occupation</label>
                                         <Select
@@ -176,19 +176,7 @@ function SignUpLender() {
                                         />
                                     </div>
 
-                                    <div className="col-span-1">
-                                        <label htmlFor="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Type of Loan</label>
-                                        <Select
-                                            value={loanType}
-                                            onChange={(e) => { setLoanType(e) }}
-                                            id="academyOwners"
-                                            placeholder="Select Loan Type"
-                                            className="font-primary text-sm"
-
-                                            options={options4}
-                                            isMulti={true}
-                                        />
-                                    </div>
+                                    
 
 
                                 </div>
@@ -209,6 +197,22 @@ function SignUpLender() {
                         {value === 2 &&
 
                             <div className=''>
+                                <div className='mb-6 grid grid-cols-2 gap-4 '>
+
+                                    <div className="col-span-1">
+                                        <label htmlFor="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Type of Loan</label>
+                                        <Select
+                                            value={loanType}
+                                            onChange={(e) => { setLoanType(e) }}
+                                            id="academyOwners"
+                                            placeholder="Select Loan Type"
+                                            className="font-primary text-sm"
+
+                                            options={options4}
+                                            isMulti={true}
+                                        />
+                                    </div>
+                                </div>
                                 <div className='mb-6 grid grid-cols-2 gap-4 '>
                                     
                                     <div className="col-span-1">
@@ -354,7 +358,7 @@ function SignUpLender() {
                 </div>
 
                 <div className='col-span-2 h-full flex justify-center items-center'>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQBAZ1vEUh_SHwrQYO0bX1dJe8Ncs0HxZWkYC6zKwcyUyogKpY5-7yDzssW7WCvpWCL_Q&usqp=CAU" alt="money" />
+                    <img src="http://debtconsolidationagency.org/wp-content/uploads/2021/03/181095.png" alt="money" />
                 </div>
             </div>
         </div>

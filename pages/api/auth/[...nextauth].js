@@ -40,13 +40,13 @@ export default NextAuth({
       }
        return session;
     },
-    // async signIn({ user }) {
-    //   try {
-    //     return true;
-    //   } catch (err) {
-    //     console.log(err.message);
-    //     return "/";
-    //   }
-    // },
+    async signIn({ user }) {
+      try {
+        return true;
+      } catch (err) {
+        console.log(err.message);
+        return "/";
+      }
+    },
   },
 })
