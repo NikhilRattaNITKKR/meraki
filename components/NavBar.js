@@ -1,21 +1,39 @@
 import React from "react";
+import Image from "next/image";
+import { useSession, signOut } from "next-auth/react";
 
 function NavBar() {
+  const { data: session, status } = useSession();
+  console.log(session)
   return (
-   
-      <nav classname="bg-white h-12 flex w-[100%] px-4 py-2  shadow-sm">
-        <img
-          src="./teamLogo.png"
+    <div>
+      <navbar className="bg-[#0d0d3a] h-12 relative flex w-[100%] px-4 py-2  shadow-sm">
+        <Image
+          src="/teamLogo.png"
           alt="teamlogo"
+          width={100}
+          height={100}
           className="h-[40px] w-[100px] inline m-2 mx-4"
         />
 
-        <span className="w-[40px]">
-          <button className="bg-[#8888f5] text-white px-5 py-2 rounded-[16px] m-2 float-right">LENDER</button>
-          <button className="bg-[#8888f5] text-white px-5 py-2 rounded-[16px] m-2 float-right">BORROWER</button>
-        </span>
-      </nav>
-    
+        {status == "authenticated" && session ? (
+          <span className="w-[40px] absolute flex right-80 justify-center align-middle">
+            <button className="bg-white text-[#8888f5] px-5 py-2 rounded-[16px] m-2 text-sm float-right">
+              LENDER
+            </button>
+            <button className="bg-white text-[#8888f5] px-5 py-2 rounded-[16px] m-2 text-sm float-right">
+              BORROWER
+            </button>
+          </span>
+        ) : (
+          <span className="w-[40px] absolute flex right-80">
+            <button className="bg-white text-[#8888f5] px-5 py-2 rounded-[16px] m-2 text-sm float-right">
+              Sign Out
+            </button>
+          </span>
+        )}
+      </navbar>
+    </div>
   );
 }
 
