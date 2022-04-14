@@ -136,7 +136,7 @@ function SignUpBorrower() {
 
                                     <div className="col-span-1">
                                         <label htmlFor="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Annual Income</label>
-                                        <input value={income} onChange={(e)=>{ setIncome(e.target.value)}}  type="number" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-blue-500" placeholder="name@flowbite.com" required />
+                                        <input value={income} onChange={(e)=>{ setIncome(e.target.value)}} min={0} type="number" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-blue-500" placeholder="name@flowbite.com" required />
                                     </div>
 
                                     
@@ -223,13 +223,13 @@ function SignUpBorrower() {
                                     </div>
 
                                     <div className="col-span-1">
-                                        <label htmlFor="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Maximum Expected ROI  </label>
-                                        <input value={maxROI} onChange={(e)=>{ setMaxROI(e.target.value)}}  type="number" id="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-500 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
+                                        <label htmlFor="mRoi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Maximum Expected ROI  </label>
+                                        <input value={maxROI} onChange={(e)=>{ setMaxROI(e.target.value)}}  type="number" id="mRoi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-500 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
                                     </div>
 
                                     <div className="col-span-1">
-                                        <label htmlFor="creditscore" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Minimum Expected ROI </label>
-                                        <input value={minROI} onChange={(e)=>{ setMinROI(e.target.value)}}  type="number" min={300} max={500} id="creditScore" class="bg-gray-50 border border-gray-300 focus:outline-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
+                                        <label htmlFor="miRoi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Minimum Expected ROI </label>
+                                        <input value={minROI} onChange={(e)=>{ setMinROI(e.target.value)}}  type="number"   id="miRoi" class="bg-gray-50 border border-gray-300 focus:outline-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
                                     </div>
                                 </div>
 
@@ -253,12 +253,12 @@ function SignUpBorrower() {
                                 <div className='mb-6 grid grid-cols-2 gap-4 '>
                                     <div className="col-span-1">
                                         <label htmlFor="creditscore" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Maximum Loan duration  </label>
-                                        <input value={maxDur} onChange={(e)=>{ setMaxDur(e.target.value)}}  type="number" min={300} max={500} id="creditScore" class="bg-gray-50 border border-gray-300 focus:outline-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
+                                        <input value={maxDur} onChange={(e)=>{ setMaxDur(e.target.value)}}  type="number" min={1} max={12} id="creditScore" class="bg-gray-50 border border-gray-300 focus:outline-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
                                     </div>
 
                                     <div className="col-span-1">
                                         <label htmlFor="creditscore" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Minimum Loan duration  </label>
-                                        <input value={minDur} onChange={(e)=>{ setMinDur(e.target.value)}}  type="number" min={300} max={500} id="creditScore" class="bg-gray-50 border border-gray-300 focus:outline-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
+                                        <input value={minDur} onChange={(e)=>{ setMinDur(e.target.value)}}  type="number" min={1} max={12} id="creditScore" class="bg-gray-50 border border-gray-300 focus:outline-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
                                     </div>
 
                                     
