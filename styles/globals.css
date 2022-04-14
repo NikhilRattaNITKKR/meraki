@@ -19,3 +19,9 @@ body {
  .custom-box-shadow{
   box-shadow: 0px 4px 20px rgba(31, 71, 188, 0.3)
  }
+.landingPage{
+  background: url("../public/landing_Page.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

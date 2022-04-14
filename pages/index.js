@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import SignUpBorrower from '../components/SignUpBorrower'
 import styles from '../styles/Home.module.css'
+import LandingPage from '../components/landingPage'
 
 export default function Home() {
   return (
