@@ -1,7 +1,11 @@
 import { Mongoose, Schema, model, models } from "mongoose";
 
 const lenderSchema = new Schema({
-  name: {
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
     type: String,
     required: true,
   },

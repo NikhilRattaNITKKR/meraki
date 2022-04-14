@@ -3,7 +3,11 @@ import { Mongoose, Schema, model, models } from "mongoose";
 import { Married,LoanType,Education,Occupation } from "../utils/enum";
 
 const borrowerSchema = new Schema({
-  name: {
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
     type: String,
     required: true,
   },
