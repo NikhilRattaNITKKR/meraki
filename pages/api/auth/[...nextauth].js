@@ -26,5 +26,27 @@ export default NextAuth({
       },
       from: process.env.EMAIL_FROM
     })
-  ]
+  ],
+  callbacks: {
+    jwt: ({ token, user }) => {
+      if (user) {
+        token.user = user;
+      }
+      return token;
+    },
+    session: async ({ session, token }) => {
+      if (token) {
+        session.user = token;
+      }
+       return session;
+    },
+    // async signIn({ user }) {
+    //   try {
+    //     return true;
+    //   } catch (err) {
+    //     console.log(err.message);
+    //     return "/";
+    //   }
+    // },
+  },
 })
